@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule — CodeMasters Conference 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .day-tabs { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .day-tab {
+      padding:.55rem 1.25rem; border-radius:50px; font-family:'Syne',sans-serif;
+      font-weight:700; font-size:.88rem; cursor:pointer; border:2px solid var(--border);
+      background:#fff; color:var(--muted); transition:all var(--transition);
+    }
+    .day-tab.active {
+      background:var(--grad); color:#fff; border-color:transparent;
+      box-shadow:0 4px 16px rgba(124,58,237,.3);
+    }
+    .day-panel { display:none; }
+    .day-panel.active { display:block; animation:fadeIn .3s ease; }
+    .session-type { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">⚡ CodeMasters 2026</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="register.html" class="btn-nav">Register</a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>/</span><span>Schedule</span>
+    </div>
+    <h1>Conference Schedule</h1>
+    <p>Three packed days of talks, workshops, panels, and networking events.</p>
+  </div>
+</div>
+
+<section style="background:var(--bg);">
+  <div class="container">
+    <!-- Day Tabs -->
+    <div class="day-tabs">
+      <button class="day-tab active" onclick="switchDay('day1', this)">📅 Day 1 </button>
+      <button class="day-tab" onclick="switchDay('day2', this)">📅 Day 2 </button>
+      <button class="day-tab" onclick="switchDay('day3', this)">📅 Day 3 </button>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day-panel active reveal" id="day1">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Session</th>
+              <th>Speaker</th>
+              <th>Track</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>08:00 – 09:00</strong></td>
+              <td>Registration & Morning Coffee ☕</td>
+              <td>—</td>
+              <td><span class="tag tag-green">All Tracks</span></td>
+            </tr>
+            <tr>
+              <td><strong>09:00 – 10:00</strong></td>
+              <td>🎤 Opening Keynote: The State of Software in 2026</td>
+              <td>Dr. Sarah Chen</td>
+              <td><span class="tag tag-blue">Keynote</span></td>
+            </tr>
+            <tr>
+              <td><strong>10:15 – 11:00</strong></td>
+              <td>Building Production-Ready LLM Applications</td>
+              <td>Priya Sharma</td>
+              <td><span class="tag tag-purple">AI & ML</span></td>
+            </tr>
+            <tr>
+              <td><strong>10:15 – 11:00</strong></td>
+              <td>Zero-Downtime Deployments at Scale</td>
+              <td>Marcus Rodriguez</td>
+              <td><span class="tag tag-cyan">Cloud / DevOps</span></td>
+            </tr>
+            <tr>
+              <td><strong>11:15 – 12:00</strong></td>
+              <td>Rust for Systems Programmers: 2026 Edition</td>
+              <td>Elena Vasquez</td>
+              <td><span class="tag tag-orange">Languages</span></td>
+            </tr>
+      
+            <tr>
+              <td><strong>12:00 – 13:30</strong></td>
+              <td>Lunch & Sponsor Expo 🍽️</td>
+              <td>—</td>
+              <td><span class="tag tag-green">Break</span></td>
+            </tr>
+            <tr>
+              <td><strong>13:30 – 14:30</strong></td>
+              <td>Workshop: Hands-on with Kubernetes & Helm</td>
+              <td>Aisha Nkemdirim</td>
+              <td><span class="tag tag-cyan">Workshop</span></td>
+            </tr>
+            <tr>
+              <td><strong>14:45 – 15:30</strong></td>
+              <td>Frontend Performance: The 2026 Playbook</td>
+              <td>Hiroshi Tanaka</td>
+              <td><span class="tag tag-blue">Web Dev</span></td>
+            </tr>
+            
+            <tr>
+              <td><strong>18:00 – 21:00</strong></td>
+              <td>Thank You  🎉</td>
+              <td>—</td>
+              <td><span class="tag tag-green">Social</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-panel" id="day2">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Session</th>
+              <th>Speaker</th>
+              <th>Track</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>09:00 – 10:00</strong></td>
+              <td> AI — Building with Guardrails</td>
+              <td>Dr. Shree Patil</td>
+              <td><span class="tag tag-blue">Keynote</span></td>
+            </tr>
+            <tr>
+              <td><strong>10:15 – 11:00</strong></td>
+              <td>Fine-Tuning vs RAG: When to Use What</td>
+              <td>Dr. Sarah Patil</td>
+              <td><span class="tag tag-purple">AI & ML</span></td>
+            </tr>
+            <tr>
+              <td><strong>10:15 – 11:00</strong></td>
+              <td>Platform Engineering for Mid-Scale Teams</td>
+              <td>Radhika Sharma</td>
+              <td><span class="tag tag-cyan">Cloud / DevOps</span></td>
+            </tr>
+            <tr>
+              <td><strong>11:15 – 12:00</strong></td>
+              <td>Database Design Patterns for High-Throughput Systems</td>
+              <td>Fatima </td>
+              <td><span class="tag tag-orange">Databases</span></td>
+            </tr>
+            <tr>
+              <td><strong>11:15 – 12:00</strong></td>
+              <td>Supply Chain Security: Protecting Your Dependencies</td>
+              <td>Neha Gupta</td>
+              <td><span class="tag tag-blue">Cyber Security</span></td>
+            </tr>
+            <tr>
+              <td><strong>12:00 – 13:30</strong></td>
+              <td>Lunch </td>
+              <td>—</td>
+              <td><span class="tag tag-green">Break</span></td>
+            </tr>
+            <tr>
+              <td><strong>13:30 – 15:00</strong></td>
+              <td>Workshop: Build an AI-Powered API in 90 Minutes</td>
+              <td>Priya Sharma</td>
+              <td><span class="tag tag-purple">Workshop</span></td>
+            </tr>
+            <tr>
+              <td><strong>15:15 – 16:00</strong></td>
+              <td>WebAssembly in the Real World</td>
+              <td>Hiroshi Tanaka</td>
+              <td><span class="tag tag-blue">Web Dev</span></td>
+            </tr>
+            
+            <tr>
+              <td><strong>19:00 – 22:00</strong></td>
+              <td>Hackathon 💻</td>
+              <td>—</td>
+              <td><span class="tag tag-green">Social</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-panel" id="day3">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Session</th>
+              <th>Speaker</th>
+              <th>Track</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>09:00 – 10:00</strong></td>
+              <td>🎤 Keynote: The Next 10 Years of Computing</td>
+              <td>Dr. Shree Patil</td>
+              <td><span class="tag tag-blue">Keynote</span></td>
+            </tr>
+            <tr>
+              <td><strong>10:15 – 11:00</strong></td>
+              <td>Observability-Driven Development</td>
+              <td>Aisha Nikam</td>
+              <td><span class="tag tag-cyan">DevOps</span></td>
+            </tr>
+            <tr>
+              <td><strong>10:15 – 11:00</strong></td>
+              <td>Building Accessible Apps at Scale</td>
+              <td>Fatima Al-Rashid</td>
+              <td><span class="tag tag-blue">Web Dev</span></td>
+            </tr>
+          
+            <tr>
+              <td><strong>12:00 – 13:30</strong></td>
+              <td> Lunch </td>
+              <td>—</td>
+              <td><span class="tag tag-green">Special</span></td>
+            </tr>
+            <tr>
+              <td><strong>13:30 – 14:30</strong></td>
+              <td>Open Q&A: Ask the Experts Anything</td>
+              <td>All Speakers</td>
+              <td><span class="tag tag-purple">Panel</span></td>
+            </tr>
+            <tr>
+              <td><strong>14:45 – 15:30</strong></td>
+              <td>Workshop: Production Incident Response Simulation</td>
+              <td>James Okafor</td>
+              <td><span class="tag tag-cyan">Workshop</span></td>
+            </tr>
+            <tr>
+              <td><strong>15:45 – 16:30</strong></td>
+              <td>Community Talks: Lightning Rounds ⚡</td>
+              <td>Community Speakers</td>
+              <td><span class="tag tag-purple">Community</span></td>
+            </tr>
+            <tr>
+              <td><strong>16:30 – 17:00</strong></td>
+              <td>🎤 Closing Keynote & Awards Ceremony</td>
+              <td>Dr. Sarah Patil</td>
+              <td><span class="tag tag-blue">Keynote</span></td>
+            </tr>
+          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+<script>
+  function switchDay(dayId, btn) {
+    document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.day-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(dayId).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

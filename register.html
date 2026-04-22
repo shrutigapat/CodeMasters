@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — CodeMasters Conference 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .ticket-card {
+      background: var(--grad);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .ticket-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.25);
+      transition: opacity var(--transition);
+    }
+    .ticket-card.selected::before { opacity: 0; }
+    .ticket-card.selected { border-color: #fff; box-shadow: 0 0 0 3px rgba(37,99,235,.4); }
+    .ticket-card .tc-inner { position: relative; }
+    .ticket-card h4 { font-family: 'Syne',sans-serif; font-size: 1.05rem; margin-bottom: .25rem; }
+    .ticket-card .price { font-family: 'Syne',sans-serif; font-size: 1.8rem; font-weight: 800; }
+    .ticket-card .price small { font-size: .75rem; font-weight: 400; opacity: .75; }
+    .ticket-basic { background: #fff; border: 2px solid var(--border); }
+    .ticket-basic::before { display: none; }
+    .ticket-basic h4, .ticket-basic .price, .ticket-basic p, .ticket-basic li { color: var(--text); }
+    .ticket-basic .price { color: var(--blue); }
+    .ticket-basic.selected { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+    .ticket-feats { list-style: none; margin-top: .75rem; font-size: .85rem; opacity: .85; }
+    .ticket-feats li::before { content: '✓ '; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">⚡ CodeMasters 2026</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="register.html" class="btn-nav active">Register</a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>/</span><span>Register</span>
+    </div>
+    <h1>Register for 2026</h1>
+    <p>Secure your spot at CodeMasters Conference — May 1–15</p>
+  </div>
+</div>
+
+<section style="background:var(--bg);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.1fr 1.6fr;gap:2.5rem;align-items:start;">
+
+      <!-- Ticket Selection -->
+      <div class="reveal">
+        <div class="section-label">Choose Your Pass</div>
+        <h2 style="margin-bottom:1.5rem;font-size:1.5rem;">Ticket Options</h2>
+
+        <!-- Early Bird -->
+        <div class="ticket-card selected" id="ticket-eb" onclick="selectTicket('eb')">
+          <div class="tc-inner">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <h4>⭐ Early Bird</h4>
+                <div class="price">$499 <small>/ person</small></div>
+              </div>
+              <span style="background:rgba(255,255,255,.2);padding:.2rem .6rem;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:.04em;">BEST VALUE</span>
+            </div>
+            <ul class="ticket-feats">
+              <li>All 3 days of sessions</li>
+              <li>Workshop access (choose 2)</li>
+              <li>Networking events & dinner</li>
+              <li>On-demand recordings (1 year)</li>
+              <li>Digital swag bag</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Standard -->
+        <div class="ticket-card ticket-basic" id="ticket-std" onclick="selectTicket('std')">
+          <div class="tc-inner">
+            <h4>Standard Pass</h4>
+            <div class="price">$799 <small>/ person</small></div>
+            <ul class="ticket-feats">
+              <li>All 3 days of sessions</li>
+              <li>Workshop access (choose 1)</li>
+              <li>Networking mixer</li>
+              <li>On-demand recordings (6 months)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Virtual -->
+        <div class="ticket-card" id="ticket-virt" onclick="selectTicket('virt')" style="background:linear-gradient(135deg,#4f46e5,#06b6d4);">
+          <div class="tc-inner">
+            <h4>🌐 Virtual Pass</h4>
+            <div class="price">$149 <small>/ person</small></div>
+            <ul class="ticket-feats">
+              <li>All keynotes & sessions livestreamed</li>
+              <li>Virtual networking rooms</li>
+              <li>On-demand recordings (6 months)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;">
+          <div style="display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);"><span>🔒</span>Secure Checkout</div>
+          <div style="display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);"><span>↩️</span>Full Refund (30 days)</div>
+          <div style="display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted);"><span>✅</span>Instant Confirmation</div>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="form-card reveal">
+        <h3 style="margin-bottom:.25rem;">Create Your Account</h3>
+        <p style="font-size:.88rem;margin-bottom:1.5rem;">Fill in your details below to complete registration.</p>
+
+        <div id="register-alert" class="alert"></div>
+
+        <div class="auth-divider">register with email</div>
+
+        <form id="register-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="r-fname">First Name *</label>
+              <input type="text" id="r-fname" placeholder="Jane" autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="r-lname">Last Name *</label>
+              <input type="text" id="r-lname" placeholder="Doe" autocomplete="family-name" />
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="r-email">Email Address *</label>
+            <input type="email" id="r-email" placeholder="jane@example.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="r-role">Job Title</label>
+            <select id="r-role">
+              <option value="">Select your role...</option>
+              <option>Software Engineer</option>
+              <option>Senior Engineer / Staff Engineer</option>
+              <option>Engineering Manager / Lead</option>
+              <option>CTO / VP Engineering</option>
+              <option>Product Manager</option>
+              <option>DevOps / Platform Engineer</option>
+              <option>Data Scientist / ML Engineer</option>
+              <option>Security Engineer</option>
+              <option>Student</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="r-password">Password *</label>
+            <div style="position:relative;">
+              <input type="password" id="r-password" placeholder="Min. 8 characters" autocomplete="new-password" style="padding-right:3rem;" />
+              <button type="button" onclick="togglePass('r-password', this)" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:.9rem;">👁</button>
+            </div>
+            <div class="strength-bar" style="margin-top:.5rem;">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem;">Use 8+ characters with uppercase, numbers & symbols for a strong password.</div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="r-agree" />
+              <label for="r-agree">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. I understand my data will be used to manage my conference registration.</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="r-updates" checked />
+              <label for="r-updates">Send me schedule updates, speaker announcements, and conference news. (Optional)</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;">
+            🚀 Complete Registration
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Already registered? <a href="login.html">Sign in to your account →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 900px) {
+    div[style*="grid-template-columns:1.1fr 1.6fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
+<script src="script.js"></script>
+<script>
+document.getElementById("register-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // page reload थांबवतो
+
+  const fname = document.getElementById("r-fname").value;
+  const email = document.getElementById("r-email").value;
+  const agree = document.getElementById("r-agree").checked;
+
+  const alertBox = document.getElementById("register-alert");
+
+  // Simple validation
+  if (fname === "" || email === "" || !agree) {
+    alertBox.style.display = "block";
+    alertBox.style.color = "red";
+    alertBox.textContent = "❌ Please fill all required fields and accept terms.";
+    return;
+  }
+
+  // Success message
+  alertBox.style.display = "block";
+  alertBox.style.color = "green";
+  alertBox.textContent = "✅ Registration Successful!";
+  
+  // Optional: reset form
+  document.getElementById("register-form").reset();
+});
+
+  function selectTicket(type) {
+    ['eb','std','virt'].forEach(t => {
+      const el = document.getElementById('ticket-' + t);
+      if (el) el.classList.remove('selected');
+    });
+    const selected = document.getElementById('ticket-' + type);
+    if (selected) selected.classList.add('selected');
+  }
+  function togglePass(id, btn) {
+    const input = document.getElementById(id);
+    input.type = input.type === 'password' ? 'text' : 'password';
+    btn.textContent = input.type === 'password' ? '👁' : '🙈';
+  }
+</script>
+</body>
+</html>

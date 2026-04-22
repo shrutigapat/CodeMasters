@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — CodeMasters Conference 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">⚡ CodeMasters 2026</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="active">Login</a>
+      <a href="register.html" class="btn-nav">Register</a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="speakers.html">Speakers</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+</nav>
+
+<!-- Auth split layout -->
+<div style="min-height:calc(100vh - 68px);display:grid;grid-template-columns:1fr 1fr;background:var(--bg);">
+
+  <!-- Left panel -->
+  <div style="background:linear-gradient(145deg,#0f0e2e 0%,#1a0a3e 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3rem;position:relative;overflow:hidden;" class="hide-mobile">
+    <!-- Decorative -->
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 30% 50%,rgba(124,58,237,.35) 0%,transparent 70%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/50px 50px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/50px 50px;"></div>
+    <div style="position:relative;text-align:center;max-width:400px;">
+      <div style="font-size:3.5rem;margin-bottom:1.5rem;filter:drop-shadow(0 0 20px rgba(147,197,253,0.5));">⚡</div>
+      <h2 style="color:#fff;font-size:1.75rem;margin-bottom:1rem;">Welcome Back!</h2>
+      <p style="color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.7;margin-bottom:2rem;">Sign in to access your personalized schedule, session bookmarks, and attendee networking tools.</p>
+      <!-- Testimonial -->
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:1.5rem;text-align:left;">
+        <p style="color:rgba(255,255,255,.8);font-size:.88rem;font-style:italic;margin-bottom:1rem;">"CodeMasters changed my career trajectory. The sessions, the people, the energy — nothing else comes close."</p>
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:1rem;">👤</div>
+          <div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel (form) -->
+  <div style="display:flex;align-items:center;justify-content:center;padding:2rem;">
+    <div style="width:100%;max-width:420px;">
+      <div class="auth-logo">
+        <h2>Sign In</h2>
+        <p>Access your CodeMasters 2026 account</p>
+      </div>
+
+      <div id="login-alert" class="alert"></div>
+
+      <!-- Social login -->
+      <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;">
+        
+        <button onclick="this.textContent='✅ Signing in with Google...'" style="display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.8rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:#fff;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--text);transition:all var(--transition);" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:1.1rem;">G</span> Continue with Google
+        </button>
+      </div>
+
+      <div class="auth-divider">or sign in with email</div>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="l-email">Email Address</label>
+          <input type="email" id="l-email" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="l-password" style="display:flex;justify-content:space-between;align-items:center;">
+            Password
+            <a href="#" style="font-size:.8rem;color:var(--blue);font-weight:600;">Forgot password?</a>
+          </label>
+          <div style="position:relative;">
+            <input type="password" id="l-password" placeholder="••••••••" autocomplete="current-password" style="padding-right:3rem;" />
+            <button type="button" onclick="togglePass('l-password', this)" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:.9rem;">👁</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="checkbox-group">
+            <input type="checkbox" id="l-remember" />
+            <label for="l-remember">Remember me for 30 days</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem;">
+          Sign In →
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Create one free →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (max-width: 768px) {
+    .hide-mobile { display: none !important; }
+    div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
+<script src="script.js"></script>
+<script>
+  function togglePass(id, btn) {
+    const input = document.getElementById(id);
+    input.type = input.type === 'password' ? 'text' : 'password';
+    btn.textContent = input.type === 'password' ? '👁' : '🙈';
+  }
+</script>
+</body>
+</html>
